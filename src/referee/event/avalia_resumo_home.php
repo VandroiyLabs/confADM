@@ -1,15 +1,17 @@
 <?php
-require_once("~/public_html/sifsc/user/classes/class.avaliador.php");
-require_once("~/public_html/sifsc/user/classes/class.evento.php");
-require_once("~/public_html/sifsc/user/classes/class.avalia_resumo.php");
-require_once("~/public_html/sifsc/user/classes/class.nota_resumo.php");
+$home = "/home/" . get_current_user() . "/";
+
+require_once($home . "public_html/sifsc/user/classes/class.avaliador.php");
+require_once($home . "public_html/sifsc/user/classes/class.evento.php");
+require_once($home . "public_html/sifsc/user/classes/class.avalia_resumo.php");
+require_once($home . "public_html/sifsc/user/classes/class.nota_resumo.php");
 
 session_start();
 require_once("../referee_edition_variables.php");
 require_once($head_file);
 
-require_once("~/public_html/sifsc/referee/event/secao.php");
-require_once("~/public_html/sifsc/referee/restricted.php");
+require_once($home . "public_html/sifsc/referee/event/secao.php");
+require_once($home . "public_html/sifsc/referee/restricted.php");
 
 include('index.php');
 
@@ -22,13 +24,13 @@ $consulta = $nota_resumo->find_by_codigo_avaliador_evento($avaliador->get_codigo
 
 <div id="user_system">
 
-	
-	
+
+
 	<div id="titulo_form_secao">
 		Avaliação de Resumo
-	</div>	
+	</div>
 
-	
+
 <?php
 	if ( isset($_SESSION['msg']) )
 	{
@@ -41,11 +43,11 @@ $consulta = $nota_resumo->find_by_codigo_avaliador_evento($avaliador->get_codigo
 	if($evento->get_avaliacao_aberta() == 1)
 	{
 
-		
+
 		if(mysql_num_rows($consulta) > 0)
 		{
 
-		
+
 
 			echo "<p>Caro avaliador(a),</p>
 
@@ -64,29 +66,29 @@ $consulta = $nota_resumo->find_by_codigo_avaliador_evento($avaliador->get_codigo
 			<table>	<tr><td align='right' colspan='2'>	<span class='button' onClick='valid_submit_question_form();' style='cursor: pointer'; > Submeter avaliações </span></td></tr></table>
 			</form>";
 
-			$count=0;	
+			$count=0;
 			while($row = mysql_fetch_object($consulta))
 			{
 				echo "<p><a href=\"http://sifsc.ifsc.usp.br/referee/event/avalia_resumo.php?codigo=".$row->codigo_pessoa."\">".$row->titulo."</a><br /></p>";
 				if($row->situacao == 0)
 				{
-					
+
 					echo "<p>Status - avaliação pendente.<br /><br /><br /></p>";
 				}
 				elseif($row->situacao == 1)
 				{
-					
+
 					echo "<p>Status - avaliação pendente de submissão.<br /><br /> Nota do Quesito 1: $row->Q1 <br /> Nota do Quesito 2: $row->Q2 <br /> Nota do Quesito 3: $row->Q3 <br /><br /><br /></p>"; $count++;
 				}
 				elseif($row->situacao == 2)
 				{
 					echo "<p>Status - avaliação submetida.<br /><br /> Nota do Quesito 1: $row->Q1 <br /> Nota do Quesito 2: $row->Q2 <br /> Nota do Quesito 3: $row->Q3 <br /> <br /><br /></p>";
 				}
-	
+
 			}
-			
-			
-				
+
+
+
 		}
 		else
 		{
@@ -97,13 +99,13 @@ $consulta = $nota_resumo->find_by_codigo_avaliador_evento($avaliador->get_codigo
 	{
 		echo "<p class=\"titulo\"> Resumos ainda não disponíveis.</p>";
 	}
-	
+
 ?>
 
 </div>
 
 <?php
-	require_once("~/public_html/sifsc/referee/event/session.php");
+	require_once($home . "public_html/sifsc/referee/event/session.php");
 	require_once($foot_file);
 
 ?>

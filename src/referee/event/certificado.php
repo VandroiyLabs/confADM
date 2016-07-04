@@ -1,22 +1,22 @@
 <?php
+$home = "/home/" . get_current_user() . "/";
 
-		
-	require_once("~/public_html/sifsc/user/classes/class.avaliador.php");
-	require_once("~/public_html/sifsc/user/classes/class.evento.php");
-	require_once("~/public_html/sifsc/user/classes/class.avalia_poster.php");
-	require_once("~/public_html/sifsc/user/classes/class.avalia_resumo.php");
-	require_once("~/public_html/sifsc/user/classes/class.avaliacao.php");
-	session_start();
-	require_once("../referee_edition_variables.php");
-	require_once($head_file);
-	require_once("~/public_html/sifsc/referee/restricted.php");
-	require_once("~/public_html/sifsc/referee/event/secao.php");
-	
-	$poster = new Avaliacao();
-	$resumo = new Avaliacao();
-	
-	
-	$count_certs = 0;
+require_once($home . "public_html/sifsc/user/classes/class.avaliador.php");
+require_once($home . "public_html/sifsc/user/classes/class.evento.php");
+require_once($home . "public_html/sifsc/user/classes/class.avalia_poster.php");
+require_once($home . "public_html/sifsc/user/classes/class.avalia_resumo.php");
+require_once($home . "public_html/sifsc/user/classes/class.avaliacao.php");
+session_start();
+require_once("../referee_edition_variables.php");
+require_once($head_file);
+require_once($home . "public_html/sifsc/referee/restricted.php");
+require_once($home . "public_html/sifsc/referee/event/secao.php");
+
+$poster = new Avaliacao();
+$resumo = new Avaliacao();
+
+
+$count_certs = 0;
 ?>
 
 <script>
@@ -49,7 +49,7 @@ document.getElementById(eddown.options[eddown.selectedIndex].text).style.display
 <div id="user_system">
 <div id="titulo_form_secao">
 		certificados
-</div>	
+</div>
 
 
 <p>Veja seus certificados abaixo (caso estejam disponíveis):</p>
@@ -80,29 +80,29 @@ echo '<div id="' . $Runevento->get_nome() . '" style="display: none;"><p p style
 
 if( $Runevento->get_certificados_disponiveis() == 1 )
 {
-	echo "<p>Clique nos botões abaixo para fazer o download dos certificados.</p>";			
+	echo "<p>Clique nos botões abaixo para fazer o download dos certificados.</p>";
 	if(mysql_num_rows($poster->find_poster_by_avaliador_evento($avaliador->get_codigo_avaliador(),$Runevento->get_codigo_evento())) > 0)
 	{
-		
-?>		
+
+?>
 			<form method='post' action='http://sifsc.ifsc.usp.br/referee/event/certificados/gerar_certificado.php'>
 
 			<input type='hidden' name='tipo' value='poster'/>
 			<table cellspacing="15" cellpadding="1" border="0">
-			<tr> 
+			<tr>
 				<td  align='left'>
 				<input  type="hidden" name="e" value="<?php echo $Runevento->get_codigo_evento(); ?>">
 				<input  class="button_certificado" type="submit" value="Workshop">
 
 				</td>
-			</tr>	
-			</table>	
-	
+			</tr>
+			</table>
+
 			</form>
-		
+
 <?php            $count++;
 		}
-		
+
 		if(mysql_num_rows($resumo->find_resumo_by_avaliador_evento($avaliador->get_codigo_avaliador(),$Runevento->get_codigo_evento()))== 1)
 		{
 ?>
@@ -110,37 +110,36 @@ if( $Runevento->get_certificados_disponiveis() == 1 )
 
 			<input type='hidden' name='tipo' value='resumo'/>
 			<table cellspacing="15" cellpadding="1" border="0">
-			<tr> 
+			<tr>
 				<td  align='left'>
 				<input  type="hidden" name="e" value="<?php echo $Runevento->get_codigo_evento(); ?>">
 				<input  class="button_certificado" type="submit" value="Avaliação de Resumo">
 				</td>
-			</tr>	
-			</table>	
-	
+			</tr>
+			</table>
+
 			</form>
-	
-			
+
+
 <?php		$count++;
-		}		
+		}
 
 		if($count == 0) echo "<p>Nenhum certificado associado.</p>";
 }
 else
 {
-	echo "<p>Certificados ainda não disponíveis.</p>";			
+	echo "<p>Certificados ainda não disponíveis.</p>";
 }
 echo "</div>";
 }
-?>	
+?>
 
-	
+
 <script>
 	showLast();
-</script>	
-</div>	
+</script>
+</div>
 </div>
 
 <?php  require_once($foot_file);
-?>			
-
+?>

@@ -1,14 +1,15 @@
 <?php
+$home = "/home/" . get_current_user() . "/";
 
-require_once("~/public_html/sifsc/user/classes/class.avaliador.php");
-require_once("~/public_html/sifsc/user/classes/class.evento.php");
-require_once("~/public_html/sifsc/user/classes/class.avalia_resumo.php");
-require_once("~/public_html/sifsc/user/classes/class.nota_resumo.php");
+require_once($home . "public_html/sifsc/user/classes/class.avaliador.php");
+require_once($home . "public_html/sifsc/user/classes/class.evento.php");
+require_once($home . "public_html/sifsc/user/classes/class.avalia_resumo.php");
+require_once($home . "public_html/sifsc/user/classes/class.nota_resumo.php");
 session_start();
 
 
-require_once("~/public_html/sifsc/referee/event/secao.php");
-require_once("~/public_html/sifsc/referee/restricted.php");
+require_once($home . "public_html/sifsc/referee/event/secao.php");
+require_once($home . "public_html/sifsc/referee/restricted.php");
 
 
 $nota_resumo = new NotaResumo();
@@ -22,7 +23,7 @@ if($evento->get_avaliacao_aberta() == 1 )
 		$ok=1; $mensagem_email="";
 		while($row = mysql_fetch_object($consulta))
 		{
-			
+
 			if($nota_resumo->find_by_codigo($avaliador->get_codigo_avaliador(), $row->codigo_pessoa, $evento->get_codigo_evento())	)
 			{
 
@@ -38,7 +39,7 @@ if($evento->get_avaliacao_aberta() == 1 )
 				$situacao = $nota_resumo->get_situacao();
 				$nota_resumo->set_situacao(2);
 
-				
+
 
 				if($nota_resumo->update())
 				{
@@ -46,17 +47,17 @@ if($evento->get_avaliacao_aberta() == 1 )
 					{
 						$nota_resumo->insert_backup();
 					}
-					
+
 				}
-				else	
+				else
 				{
 					$ok=0;
-				}		
+				}
 
 			}
-			
+
 		}
-			
+
 		if($ok == 1)
 		{
 
@@ -79,7 +80,7 @@ if($evento->get_avaliacao_aberta() == 1 )
 			$_SESSION['msg'] = "Erro ao submeter avaliações. Por favor, contacte a comissão organizadora!";
 			echo "<script language=\"javascript\">location=(\"../avalia_resumo_home.php\");</script>";
 		}
-			
+
 	}
 }
 else
@@ -88,4 +89,3 @@ else
 }
 
 ?>
-

@@ -55,7 +55,7 @@ elseif ( strcmp($currentFile, 'pesquisa_opiniao.php') == 0 )
 
 	<div id="upper">
 		<h3>Área do avaliador</h3>
-		<?php 
+		<?php
 		if ( strcmp($avaliador->get_nome(), "") == 0 )
 		{
 			echo "<p>Olá, visitante</span>.</p>";
@@ -73,13 +73,13 @@ elseif ( strcmp($currentFile, 'pesquisa_opiniao.php') == 0 )
 			}
 			?>
 			<p>Olá, <span id=\"nome_participant\"><? echo $nomepessoa; ?></span>.</p>
-			<?php 
+			<?php
 		}
 		?>
 	</div>
-	
+
 	<p class="logout"><a href="http://sifsc.ifsc.usp.br/referee/logconfig/logout.php">Sair</a></p>
-	
+
 	<ul>
 		<li><a href="http://sifsc.ifsc.usp.br/referee/event/status.php" <?php echo $items[0] ?>>&nbsp;Status da conta</a></li>
 		<li><a href="http://sifsc.ifsc.usp.br/referee/event/avalia_resumo_home.php" <?php echo $items[1] ?>>&nbsp;Avaliar Resumos</a></li>

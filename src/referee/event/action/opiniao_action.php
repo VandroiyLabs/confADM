@@ -1,19 +1,17 @@
 <?php
-require_once("~/public_html/sifsc/user/classes/class.avaliador.php");
-require_once("~/public_html/sifsc/user/classes/class.evento.php");
-require_once("~/public_html/sifsc/user/classes/class.pesquisa_opiniao.php");
+$home = "/home/" . get_current_user() . "/";
+
+require_once($home . "public_html/sifsc/user/classes/class.avaliador.php");
+require_once($home . "public_html/sifsc/user/classes/class.evento.php");
+require_once($home . "public_html/sifsc/user/classes/class.pesquisa_opiniao.php");
 
 session_start();
-
-include("~/public_html/sifsc/user/error_handler.php");
+include($home . "public_html/sifsc/user/error_handler.php");
 $page = $_POST["page"];
-
-
-
-include("~/public_html/sifsc/referee/event/secao.php");
+include($home . "public_html/sifsc/referee/event/secao.php");
 
 // Codigo pessoa
-$codigo_avaliador = $avaliador->get_codigo_avaliador();	
+$codigo_avaliador = $avaliador->get_codigo_avaliador();
 
 $opiniao = new PesquisaOpiniao();
 
@@ -55,4 +53,3 @@ $opiniao->insert();
 echo "<script language=\"JavaScript\">location=(\"../status.php\");</script>";
 
 ?>
-

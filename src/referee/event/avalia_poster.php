@@ -1,19 +1,20 @@
 <?php
+$home = "/home/" . get_current_user() . "/";
 
-require_once("~/public_html/sifsc/user/classes/class.avaliador.php");
-require_once("~/public_html/sifsc/user/classes/class.evento.php");
-require_once("~/public_html/sifsc/user/classes/class.inscricao.php");
-require_once("~/public_html/sifsc/user/classes/class.resumo.php");
-require_once("~/public_html/sifsc/user/classes/class.autor.php");
-require_once("~/public_html/sifsc/user/classes/class.avalia_poster.php");
+require_once($home . "public_html/sifsc/user/classes/class.avaliador.php");
+require_once($home . "public_html/sifsc/user/classes/class.evento.php");
+require_once($home . "public_html/sifsc/user/classes/class.inscricao.php");
+require_once($home . "public_html/sifsc/user/classes/class.resumo.php");
+require_once($home . "public_html/sifsc/user/classes/class.autor.php");
+require_once($home . "public_html/sifsc/user/classes/class.avalia_poster.php");
 
 session_start();
 require_once("../referee_edition_variables.php");
 require_once($head_file);
 
 
-require_once("~/public_html/sifsc/referee/event/secao.php");
-require_once("~/public_html/sifsc/referee/restricted.php");
+require_once($home . "public_html/sifsc/referee/event/secao.php");
+require_once($home . "public_html/sifsc/referee/restricted.php");
 
 include('index.php');
 
@@ -41,20 +42,20 @@ exit();
 
 
 <div id="user_system">
-	
+
 	<div id="titulo_form_secao">
 		Workshop
-	</div>	
-		
-		<?php 
-						
+	</div>
+
+		<?php
+
 			include('show_poster.php');
 		?>
-		
+
 </div>
 
 <?php
-	require_once("~/public_html/sifsc/referee/event/session.php");
+	require_once($home . "public_html/sifsc/referee/event/session.php");
 
 	require_once($foot_file);
 ?>

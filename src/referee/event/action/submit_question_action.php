@@ -1,18 +1,16 @@
 <?php
-require_once("~/public_html/sifsc/user/classes/class.avaliador.php");
-require_once("~/public_html/sifsc/user/classes/class.evento.php");
-require_once("~/public_html/sifsc/user/classes/class.nota_resumo.php");
+$home = "/home/" . get_current_user() . "/";
+
+require_once($home . "public_html/sifsc/user/classes/class.avaliador.php");
+require_once($home . "public_html/sifsc/user/classes/class.evento.php");
+require_once($home . "public_html/sifsc/user/classes/class.nota_resumo.php");
 
 session_start();
-
 require_once("../../referee_edition_variables.php");
 require_once($head_file);
-	
 
-
-
-require_once("~/public_html/sifsc/referee/event/secao.php");
-require_once("~/public_html/sifsc/referee/restricted.php");
+require_once($home . "public_html/sifsc/referee/event/secao.php");
+require_once($home . "public_html/sifsc/referee/restricted.php");
 
 include('../index.php');
 
@@ -24,13 +22,13 @@ $consulta = $nota_resumo->find_by_codigo_avaliador_evento($avaliador->get_codigo
 
 <div id="user_system">
 
-	
-	
+
+
 	<div id="titulo_form_secao">
 		Avaliação de Resumo
-	</div>	
+	</div>
 
-	
+
 <?php
 	if ( isset($_SESSION['msg']) )
 	{
@@ -62,7 +60,7 @@ $consulta = $nota_resumo->find_by_codigo_avaliador_evento($avaliador->get_codigo
 					//$mensagem_email.="Nota do Quesito 4: ".$row->Q4."\n";
 					//$mensagem_email.="Nota do Quesito 5: ".$row->Q5."\n";
 					$mensagem_email.="\n\n\n";
-				
+
 					$mensagem.="<p>".$row->titulo."<br \><br \>";
 					$mensagem.="Nota do Quesito 1: ".$row->Q1."<br \>";
 					$mensagem.="Nota do Quesito 2: ".$row->Q2."<br \>";
@@ -72,9 +70,9 @@ $consulta = $nota_resumo->find_by_codigo_avaliador_evento($avaliador->get_codigo
 					$mensagem.="<br \><br \><br \></p>";
 					$count++;
 				}
-	
+
 			}
-			
+
 			if($ok == 1)
 			{
 				if($count > 0)
@@ -95,8 +93,8 @@ $consulta = $nota_resumo->find_by_codigo_avaliador_evento($avaliador->get_codigo
 			else
 			{
 				echo "<p class=\"titulo\">Existem resumos pendentes de avaliação.</p>";
-			}			
-				
+			}
+
 		}
 		else
 		{
@@ -107,7 +105,7 @@ $consulta = $nota_resumo->find_by_codigo_avaliador_evento($avaliador->get_codigo
 	{
 		echo "<p class=\"titulo\"> Avaliações fechadas.</p>";
 	}
-	
+
 ?>
 
 </div>

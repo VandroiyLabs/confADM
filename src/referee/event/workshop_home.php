@@ -1,9 +1,9 @@
 <?php
+$home = "/home/" . get_current_user() . "/";
 
-	
-require_once("~/public_html/sifsc/user/classes/class.avaliador.php");
-require_once("~/public_html/sifsc/user/classes/class.evento.php");
-require_once("~/public_html/sifsc/user/classes/class.avalia_poster.php");
+require_once($home . "public_html/sifsc/user/classes/class.avaliador.php");
+require_once($home . "public_html/sifsc/user/classes/class.evento.php");
+require_once($home . "public_html/sifsc/user/classes/class.avalia_poster.php");
 
 session_start();
 
@@ -19,8 +19,8 @@ $secao_poster = array(
 
 
 
-require_once("~/public_html/sifsc/referee/event/secao.php");
-require_once("~/public_html/sifsc/referee/restricted.php");
+require_once($home . "public_html/sifsc/referee/event/secao.php");
+require_once($home . "public_html/sifsc/referee/restricted.php");
 
 include('index.php');
 
@@ -33,17 +33,17 @@ $avalia_poster = new AvaliaPoster();
 
 <div id="user_system">
 
-	
+
 	<div id="titulo_form_secao">
 		Workshop
-	</div>	
+	</div>
 
 
-<?php 
+<?php
 $total=0;
-	
+
 if($evento->get_avaliacao_aberta() == 1)
-{	
+{
 	$ok=0;
 	for($j=1; $j<=4; $j++)
 	{
@@ -61,14 +61,14 @@ if($evento->get_avaliacao_aberta() == 1)
 					$painel = "GR";
 				else
 					$painel = "OT";
-		
+
 				echo "<p> <a href=\"http://sifsc.ifsc.usp.br/referee/event/avalia_poster.php?codigo=".$row->codigo_pessoa."\">Painel $painel $row->codigo_pessoa - ".$row->titulo."</a></p>";
-				
-			}	echo "<br /><br />";	
+
+			}	echo "<br /><br />";
 		}
 	}
-	
-	
+
+
 	if($ok == 0)
 	echo "<p class=\"titulo\"> Nenhuma avaliação associada.</p>";
 }
@@ -82,6 +82,6 @@ else
 </div>
 
 <?php
-	require_once("~/public_html/sifsc/referee/event/session.php");
-	require_once($head_file);		
+	require_once($home . "public_html/sifsc/referee/event/session.php");
+	require_once($head_file);
 ?>

@@ -1,6 +1,8 @@
 <?php
-require_once('~/public_html/sifsc/user/classes/class.avaliador.php');
-require_once('~/public_html/sifsc/user/classes/class.evento.php');
+$home = "/home/" . get_current_user() . "/";
+
+require_once($home . "public_html/sifsc/user/classes/class.avaliador.php");
+require_once($home . "public_html/sifsc/user/classes/class.evento.php");
 session_start();
 include("~/public_html/sifsc/user/error_handler.php");
 
