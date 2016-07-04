@@ -1,7 +1,9 @@
 confADM
 ====
 
+confADM is a project developed since 2012 as the main administrative system behinds a large conference that takes place in the [Institute of Physics of São Carlos](http://www.ifsc.usp.br/) (University of São Paulo), "Semana do Instituto de Física de São Carlos" (SIFSC). After this period developing this system, we wanted to share this code with everyone interested in learning a bit from all this work. We also believe that the SIFSC could benefit from this code becoming public, as much more people would be able to contribute to it and create an awesome project together. In other words, this project could become a wonderful project, maintained by the community. The core system was used in at least other 8 conferences successfully, although with modifications.
 
+Because this project, as is right now, is highly focused on the community around the Institute of Physics of São Carlos, most of its documentation will be written in Portuguese. This introductory paragraph intends to make a general introduction to anyone who might appear here. If you have questions, do not hesitate contacting the developers.
 
 
 Licence
@@ -13,6 +15,17 @@ the [LICENSE](https://github.com/VandroiyLabs/confADM/blob/master/LICENSE) file.
 Should you benefit from this code, we would highly appreciate if you could star
 our repository.
 
+
+Ideia geral do sistema
+---
+
+O sistema funciona em 3 partes básicas e interconectadas: _user_, _adm_ e _referee_. A ideia foi seguir o padrão de desenvolvimento _Model–View–Controller_, e para tal dividimos todo o desenvolvimento em três partes:
+
+* Definições de classes (model)
+* Páginas, formulários, e javascripts (view)
+* Scripts _action_ (controller)
+
+Todas as classes estão definidas na pasta _user/classes/_.
 
 Dependências
 ----
@@ -26,7 +39,7 @@ A versão atual deste software assume as seguintes bibliotecas:
 
 
 Configurações necessárias
-—
+---
 
 A seguir, algumas das configurações necessárias com respeito ao banco de dados e e-mails.
 
