@@ -1,28 +1,27 @@
 <?php
 
 require_once('class.conexao.php');
-//require_once('class.auxilio.php');
 
 class Calendar
 {
 
 	private $id;
-	private $codigo_evento;   
+	private $codigo_evento;
 	private $aux;
 	private $autor;
 	private $instituicao;
    	private $chamada;
-	private $titulo;    
+	private $titulo;
 	private $resumo;
-	private $start;       
+	private $start;
 	private $end;
 	private $color;
 	private $local;
-		
-	
+
+
 	public function __construct()
 	{
-		
+
 		$this->set_id(NULL);
 		$this->set_codigo_evento(NULL);
 		$this->set_end(NULL);
@@ -32,12 +31,12 @@ class Calendar
 		$this->set_aux(NULL);
 		$this->set_autor(NULL);
 		$this->set_instituicao(NULL);
-		$this->set_resumo(NULL);		
+		$this->set_resumo(NULL);
 		$this->set_titulo(NULL);
 		$this->set_start(NULL);
-		
+
 	}
-	
+
 
 
 	//setters
@@ -68,7 +67,7 @@ class Calendar
 	public function get_titulo(){return $this->titulo;}
 	public function get_start(){return $this->start;}
 
-    
+
 	public function find_by_pessoa_evento($id, $codigo_evento)
 	{
 
@@ -93,7 +92,7 @@ class Calendar
 			$this->set_resumo(mysql_result($consulta,0,'resumo'));
 			$this->set_titulo(mysql_result($consulta,0,'titulo'));
 			$this->set_start(mysql_result($consulta,0,'start'));
-			
+
 			mysql_free_result($consulta);
 			$conexao = null;
 			return True;
@@ -107,13 +106,13 @@ class Calendar
 	public static function find_palestrante_by_evento($codigo_evento)
 	{
 
-		
+
 		$conexao = new Conexao();
 		$sql = "SELECT autor FROM Calendar WHERE codigo_evento = '$codigo_evento' AND autor <> ''  ORDER BY autor";
 		$consulta = $conexao->db_query($sql);
 		//echo $sql;
 		$conexao = null;
-		
+
 		return $consulta;
 	}
 

@@ -16,7 +16,8 @@ if($fechar == true)
 
 
 session_start();
-include("~/public_html/sifsc/user/error_handler.php");
+$home = "/home/" . get_current_user() . "/";
+include($home . "public_html/sifsc/user/error_handler.php");
 
 require_once('Mail.php');
 

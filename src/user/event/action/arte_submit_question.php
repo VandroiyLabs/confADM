@@ -1,17 +1,18 @@
 <?php
+$home = "/home/" . get_current_user() . "/";
 
-	require_once("~/public_html/sifsc/user/classes/class.pessoa.php");
-	require_once("~/public_html/sifsc/user/classes/class.evento.php");
-	require_once("~/public_html/sifsc/user/classes/class.inscricao.php");
-	require_once("~/public_html/sifsc/user/classes/class.arte.php");
+require_once($home . "public_html/sifsc/user/classes/class.pessoa.php");
+require_once($home . "public_html/sifsc/user/classes/class.evento.php");
+require_once($home . "public_html/sifsc/user/classes/class.inscricao.php");
+require_once($home . "public_html/sifsc/user/classes/class.arte.php");
 
-	if ( !isset($_SESSION["arte"]) )
-	{
-		echo "<script language=\"JavaScript\">history.back();</script>";
-	}
-	require_once("./../../user_edition_variables.php");
-	require_once($head_file);
-	include('~/public_html/sifsc/user/event/index.php');
+if ( !isset($_SESSION["arte"]) )
+{
+	echo "<script language=\"JavaScript\">history.back();</script>";
+}
+require_once("./../../user_edition_variables.php");
+require_once($head_file);
+include($home . "public_html/sifsc/user/event/index.php");
 
 
 ?>

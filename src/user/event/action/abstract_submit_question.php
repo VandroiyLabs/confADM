@@ -1,4 +1,6 @@
 <?php
+$home = "/home/" . get_current_user() . "/";
+
 require_once('../../classes/class.pessoa.php');
 require_once('../../classes/class.evento.php');
 require_once('../../classes/class.inscricao.php');
@@ -19,7 +21,7 @@ function IsLatin1($str)
 
 
 
-include("~/public_html/sifsc/user/event/secao.php");
+include($home . "public_html/sifsc/user/event/secao.php");
 
 $_SESSION["evento"] = $evento;
 $_SESSION["pessoa"] = $pessoa;

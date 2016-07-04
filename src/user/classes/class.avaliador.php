@@ -1,7 +1,7 @@
 <?php
 
 require_once('class.conexao.php');
-require_once("~/public_html/sifsc/user/classes/email_functions.php");
+require_once("email_functions.php");
 
 class Avaliador
 {

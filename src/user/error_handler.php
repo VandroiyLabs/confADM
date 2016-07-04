@@ -1,5 +1,7 @@
 <?php
-require_once('~/public_html/sifsc/user/classes/email_functions.php');
+
+$home = "/home/" . get_current_user() . "/";
+require_once($home . 'public_html/sifsc/user/classes/email_functions.php');
 
 try
 {

@@ -1,13 +1,15 @@
 <?php
-  require_once("~/public_html/sifsc/user/classes/class.participante.php");
-	require_once("~/public_html/sifsc/user/classes/class.evento.php");
-	require_once("~/public_html/sifsc/user/classes/class.inscricao.php");
+$home = "/home/" . get_current_user() . "/";
 
-	session_start();
-	require_once("./../user_edition_variables.php");
-	require_once($head_file);
-	require_once("~/public_html/sifsc/user/restricted.php");
-	require_once("~/public_html/sifsc/user/event/status.php");
+require_once($home . "public_html/sifsc/user/classes/class.participante.php");
+require_once($home . "public_html/sifsc/user/classes/class.evento.php");
+require_once($home . "public_html/sifsc/user/classes/class.inscricao.php");
+
+session_start();
+require_once("./../user_edition_variables.php");
+require_once($head_file);
+require_once($home . "public_html/sifsc/user/restricted.php");
+require_once($home . "public_html/sifsc/user/event/status.php");
 ?>
 
 <table width="100%">

@@ -1,8 +1,9 @@
 <?php
+$home = "/home/" . get_current_user() . "/";
+
 
 // Esta página pede para confirmar se o usuário
 // realmente quer deletar seu resumo em inglês
-
 
 require_once('../classes/class.pessoa.php');
 require_once('../classes/class.evento.php');
@@ -26,7 +27,7 @@ if ( $inscricao->get_codigo_resumo_ingles() != 0 )
 
 	require_once("./../user_edition_variables.php");
 	require_once($head_file);
-	include('~/public_html/sifsc/user/event/index.php');
+	include($home . 'public_html/sifsc/user/event/index.php');
 	?>
 
 

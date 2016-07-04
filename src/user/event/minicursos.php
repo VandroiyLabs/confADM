@@ -1,16 +1,17 @@
 <?php
+$home = "/home/" . get_current_user() . "/";
 
-require_once("~/public_html/sifsc/user/classes/class.pessoa.php");
-require_once("~/public_html/sifsc/user/classes/class.evento.php");
-require_once("~/public_html/sifsc/user/classes/class.inscricao.php");
-require_once("~/public_html/sifsc/user/classes/class.minicurso.php");
-require_once("~/public_html/sifsc/user/classes/class.participa_minicurso.php");
+require_once($home . "public_html/sifsc/user/classes/class.pessoa.php");
+require_once($home . "public_html/sifsc/user/classes/class.evento.php");
+require_once($home . "public_html/sifsc/user/classes/class.inscricao.php");
+require_once($home . "public_html/sifsc/user/classes/class.minicurso.php");
+require_once($home . "public_html/sifsc/user/classes/class.participa_minicurso.php");
 session_start();
 require_once("./../user_edition_variables.php");
 require_once($head_file);
 
-require_once("~/public_html/sifsc/user/restricted.php");
-require_once("~/public_html/sifsc/user/event/secao.php");
+require_once($home . "public_html/sifsc/user/restricted.php");
+require_once($home . "public_html/sifsc/user/event/secao.php");
 
 
 $participacao = new ParticipaMinicurso();
@@ -78,7 +79,7 @@ $_SESSION["participacao"] = $participacao;
 
 	<form accept-charset="ISO-8859-1" method="POST" name="formulario" action="http://sifsc.ifsc.usp.br/user/event/action/minicurso_action.php" >
 
-		<?php 	include("~/public_html/sifsc/user/event/form/minicurso_form.php"); ?>
+		<?php 	include($home . "public_html/sifsc/user/event/form/minicurso_form.php"); ?>
 
 		<input type='hidden' name='page' value=''/>
 		<input type='hidden' name='total' value="<?=$total?>"/>

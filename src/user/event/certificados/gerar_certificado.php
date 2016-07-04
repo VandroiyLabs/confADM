@@ -1,13 +1,15 @@
 <?php
-	require_once("~/public_html/sifsc/user/classes/class.pessoa.php");
-	require_once("~/public_html/sifsc/user/classes/class.evento.php");
-	require_once("~/public_html/sifsc/user/classes/class.inscricao.php");
-	require_once("~/public_html/sifsc/user/classes/class.minicurso.php");
-	require_once("~/public_html/sifsc/user/classes/class.resumo.php");
-	require_once("~/public_html/sifsc/user/classes/class.participa_minicurso.php");
-	session_start();
-	require_once("~/public_html/sifsc/user/restricted.php");
-	require_once("~/public_html/sifsc/user/event/secao.php");
+$home = "/home/" . get_current_user() . "/";
+
+require_once($home . "public_html/sifsc/user/classes/class.pessoa.php");
+require_once($home . "public_html/sifsc/user/classes/class.evento.php");
+require_once($home . "public_html/sifsc/user/classes/class.inscricao.php");
+require_once($home . "public_html/sifsc/user/classes/class.minicurso.php");
+require_once($home . "public_html/sifsc/user/classes/class.resumo.php");
+require_once($home . "public_html/sifsc/user/classes/class.participa_minicurso.php");
+session_start();
+require_once($home . "public_html/sifsc/user/restricted.php");
+require_once($home . "public_html/sifsc/user/event/secao.php");
 
 	$ok=1;
 

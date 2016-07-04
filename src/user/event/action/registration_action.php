@@ -1,15 +1,13 @@
 <?php
+$home = "/home/" . get_current_user() . "/";
 
-require_once('~/public_html/sifsc/user/classes/class.pessoa.php');
-require_once('~/public_html/sifsc/user/classes/class.inscricao.php');
-require_once('~/public_html/sifsc/user/classes/class.evento.php');
-
-
-
-include("~/public_html/sifsc/user/error_handler.php");
+require_once($home . "public_html/sifsc/user/classes/class.pessoa.php");
+require_once($home . "public_html/sifsc/user/classes/class.inscricao.php");
+require_once($home . "public_html/sifsc/user/classes/class.evento.php");
+include($home . "public_html/sifsc/user/error_handler.php");
 
 session_start();
-require_once("~/public_html/sifsc/user/event/secao.php");
+require_once($home . "public_html/sifsc/user/event/secao.php");
 
 
 if ( $evento->get_aberto() == '1' )

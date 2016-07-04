@@ -1,22 +1,24 @@
 <?php
-require_once("~/public_html/sifsc/user/classes/class.pessoa.php");
-require_once("~/public_html/sifsc/user/classes/class.evento.php");
-require_once("~/public_html/sifsc/user/classes/class.inscricao.php");
-require_once("~/public_html/sifsc/user/classes/class.pesquisa_opiniao.php");
-require_once("~/public_html/sifsc/user/classes/class.minicurso.php");
-require_once("~/public_html/sifsc/user/classes/class.participa_minicurso.php");
+$home = "/home/" . get_current_user() . "/";
+
+require_once($home . "public_html/sifsc/user/classes/class.pessoa.php");
+require_once($home . "public_html/sifsc/user/classes/class.evento.php");
+require_once($home . "public_html/sifsc/user/classes/class.inscricao.php");
+require_once($home . "public_html/sifsc/user/classes/class.pesquisa_opiniao.php");
+require_once($home . "public_html/sifsc/user/classes/class.minicurso.php");
+require_once($home . "public_html/sifsc/user/classes/class.participa_minicurso.php");
 
 session_start();
 
-include("~/public_html/sifsc/user/error_handler.php");
+include($home . "public_html/sifsc/user/error_handler.php");
 $page = $_POST["page"];
 
 
 
-include("~/public_html/sifsc/user/event/secao.php");
+include($home . "public_html/sifsc/user/event/secao.php");
 
 // Codigo pessoa
-$codigo_pessoa = $pessoa->get_codigo_pessoa();	
+$codigo_pessoa = $pessoa->get_codigo_pessoa();
 
 // Encontrando novamente o minicurso deste participante
 $participacao = new ParticipaMinicurso();

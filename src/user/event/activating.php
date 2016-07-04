@@ -1,23 +1,24 @@
 <?php
+$home = "/home/" . get_current_user() . "/";
 
-	require_once("~/public_html/sifsc/user/classes/class.pessoa.php");
-	require_once("~/public_html/sifsc/user/classes/class.evento.php");
-	require_once("~/public_html/sifsc/user/classes/class.inscricao.php");
-	require_once("~/public_html/sifsc/user/classes/class.autor.php");
-	require_once("~/public_html/sifsc/user/classes/class.arte.php");
-	require_once("~/public_html/sifsc/user/classes/class.minicurso.php");
-	require_once("~/public_html/sifsc/user/classes/class.avalia_poster.php");
-	require_once("~/public_html/sifsc/user/classes/class.participa_premiacao.php");
-	require_once("~/public_html/sifsc/user/classes/class.participa_minicurso.php");
-	require_once("~/public_html/sifsc/user/classes/class.resumo.php");
-	require_once("~/public_html/sifsc/user/classes/class.kits.php");
+	require_once($home . "public_html/sifsc/user/classes/class.pessoa.php");
+	require_once($home . "public_html/sifsc/user/classes/class.evento.php");
+	require_once($home . "public_html/sifsc/user/classes/class.inscricao.php");
+	require_once($home . "public_html/sifsc/user/classes/class.autor.php");
+	require_once($home . "public_html/sifsc/user/classes/class.arte.php");
+	require_once($home . "public_html/sifsc/user/classes/class.minicurso.php");
+	require_once($home . "public_html/sifsc/user/classes/class.avalia_poster.php");
+	require_once($home . "public_html/sifsc/user/classes/class.participa_premiacao.php");
+	require_once($home . "public_html/sifsc/user/classes/class.participa_minicurso.php");
+	require_once($home . "public_html/sifsc/user/classes/class.resumo.php");
+	require_once($home . "public_html/sifsc/user/classes/class.kits.php");
 
 	session_start();
 
 	require_once("./../user_edition_variables.php");
 	require_once($head_file);
 
-	require_once("~/public_html/sifsc/user/restricted.php");
+	require_once($home . "public_html/sifsc/user/restricted.php");
 
 	$pessoa = new Pessoa();
 	$codigo_pessoa = $_SESSION["codigo_pessoa"];

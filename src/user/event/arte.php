@@ -1,15 +1,16 @@
 <?php
+$home = "/home/" . get_current_user() . "/";
 
- 	require_once("~/public_html/sifsc/user/classes/class.pessoa.php");
-	require_once("~/public_html/sifsc/user/classes/class.evento.php");
-	require_once("~/public_html/sifsc/user/classes/class.inscricao.php");
-	require_once("~/public_html/sifsc/user/classes/class.arte.php");
+ 	require_once($home . "public_html/sifsc/user/classes/class.pessoa.php");
+	require_once($home . "public_html/sifsc/user/classes/class.evento.php");
+	require_once($home . "public_html/sifsc/user/classes/class.inscricao.php");
+	require_once($home . "public_html/sifsc/user/classes/class.arte.php");
 
 	session_start();
 	require_once("./../user_edition_variables.php");
 	require_once($head_file);
-	require_once("~/public_html/sifsc/user/restricted.php");
-	require_once("~/public_html/sifsc/user/event/secao.php");
+	require_once($home . "public_html/sifsc/user/restricted.php");
+	require_once($home . "public_html/sifsc/user/event/secao.php");
 
 	//Verificando se o participante está inscrito na edição atual
 	if(isset($_SESSION["SemInscricao"]) AND $_SESSION["SemInscricao"] == 1)
@@ -81,7 +82,7 @@
 
 
 
-		<?php 	include("~/public_html/sifsc/user/event/form/arte_form.php"); ?>
+		<?php 	include($home . "public_html/sifsc/user/event/form/arte_form.php"); ?>
 
 		<input type='hidden' name='page' value=''/>
 		<input type='hidden' name='submissao' value='0'/>
@@ -128,7 +129,7 @@
 			echo "<h2 class=\"deferimento\">Sua obra de arte foi indeferida.</h2>";
 			echo "<p>Segue o motivo pelo indeferimento:</p>";
 
-		 	require_once("~/public_html/sifsc/user/classes/class.deferimento.php");
+		 	require_once($home . "public_html/sifsc/user/classes/class.deferimento.php");
 			$def = new Deferimento();
 			$def->find_by_evento_pessoa_arte($evento->get_codigo_evento(), $pessoa->get_codigo_pessoa(), $inscricao->get_codigo_arte());
 			echo "<hr class=\"notadeferimentou\" /><p class=\"notadeferimento\">" . nl2br( $def->get_comentario() ) . "</p><hr class=\"notadeferimentod\" /><br /><br />";

@@ -1,6 +1,6 @@
 <?php
-
-include("~/public_html/sifsc/user/error_handler.php");
+$home = "/home/" . get_current_user() . "/";
+include($home . "public_html/sifsc/user/error_handler.php");
 require_once("./../classes/class.pessoa.php");
 require_once("./../classes/class.conexao.php");
 require_once("./../classes/class.evento.php");

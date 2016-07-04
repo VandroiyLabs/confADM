@@ -1,17 +1,17 @@
 <?php
+$home = "/home/" . get_current_user() . "/";
 
-
-	require_once("~/public_html/sifsc/user/classes/class.pessoa.php");
-	require_once("~/public_html/sifsc/user/classes/class.evento.php");
-	require_once("~/public_html/sifsc/user/classes/class.inscricao.php");
-	require_once("~/public_html/sifsc/user/classes/class.resumo.php");
-	require_once("~/public_html/sifsc/user/classes/class.autor.php");
+	require_once($home . "public_html/sifsc/user/classes/class.pessoa.php");
+	require_once($home . "public_html/sifsc/user/classes/class.evento.php");
+	require_once($home . "public_html/sifsc/user/classes/class.inscricao.php");
+	require_once($home . "public_html/sifsc/user/classes/class.resumo.php");
+	require_once($home . "public_html/sifsc/user/classes/class.autor.php");
 	session_start();
 	require_once("./../user_edition_variables.php");
 	require_once($head_file);
 
-	include("~/public_html/sifsc/user/restricted.php");
-	include("~/public_html/sifsc/user/event/secao.php");
+	include($home . "public_html/sifsc/user/restricted.php");
+	include($home . "public_html/sifsc/user/event/secao.php");
 
 
 	//Verificando se o participante está inscrito na edição atual
@@ -115,7 +115,7 @@
 			unset($_SESSION['problemas']);
 		}
 
-		require_once("~/public_html/sifsc/user/classes/class.deferimento.php");
+		require_once($home . "public_html/sifsc/user/classes/class.deferimento.php");
 		$def = new Deferimento();
 		if ( $def->find_by_evento_pessoa_resumo($evento->get_codigo_evento(), $pessoa->get_codigo_pessoa(), $inscricao->get_codigo_resumo() ) )
 		{
@@ -152,7 +152,7 @@
 	{
 		echo "\t\t<p>Seu resumo foi indeferido pela organização. Veja o motivo:</p>\n";
 
-		require_once("~/public_html/sifsc/user/classes/class.deferimento.php");
+		require_once($home . "public_html/sifsc/user/classes/class.deferimento.php");
 		$def = new Deferimento();
 		$def->find_by_evento_pessoa_resumo($evento->get_codigo_evento(), $pessoa->get_codigo_pessoa(), $inscricao->get_codigo_resumo() );
 

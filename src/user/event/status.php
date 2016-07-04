@@ -1,22 +1,23 @@
 <?php
+$home = "/home/" . get_current_user() . "/";
 
-	require_once("~/public_html/sifsc/user/classes/class.pessoa.php");
-	require_once("~/public_html/sifsc/user/classes/class.evento.php");
-	require_once("~/public_html/sifsc/user/classes/class.inscricao.php");
-	require_once("~/public_html/sifsc/user/classes/class.autor.php");
-	require_once("~/public_html/sifsc/user/classes/class.arte.php");
-	require_once("~/public_html/sifsc/user/classes/class.minicurso.php");
-	require_once("~/public_html/sifsc/user/classes/class.avalia_poster.php");
-	require_once("~/public_html/sifsc/user/classes/class.participa_premiacao.php");
-	require_once("~/public_html/sifsc/user/classes/class.participa_minicurso.php");
-	require_once("~/public_html/sifsc/user/classes/class.resumo.php");
-	require_once("~/public_html/sifsc/user/classes/class.kits.php");
-	session_start();
-	require_once("./../user_edition_variables.php");
-	require_once($head_file);
+require_once($home . "public_html/sifsc/user/classes/class.pessoa.php");
+require_once($home . "public_html/sifsc/user/classes/class.evento.php");
+require_once($home . "public_html/sifsc/user/classes/class.inscricao.php");
+require_once($home . "public_html/sifsc/user/classes/class.autor.php");
+require_once($home . "public_html/sifsc/user/classes/class.arte.php");
+require_once($home . "public_html/sifsc/user/classes/class.minicurso.php");
+require_once($home . "public_html/sifsc/user/classes/class.avalia_poster.php");
+require_once($home . "public_html/sifsc/user/classes/class.participa_premiacao.php");
+require_once($home . "public_html/sifsc/user/classes/class.participa_minicurso.php");
+require_once($home . "public_html/sifsc/user/classes/class.resumo.php");
+require_once($home . "public_html/sifsc/user/classes/class.kits.php");
+session_start();
+require_once("./../user_edition_variables.php");
+require_once($head_file);
 
-	require_once("~/public_html/sifsc/user/restricted.php");
-	require_once("~/public_html/sifsc/user/event/secao.php");
+require_once($home . "public_html/sifsc/user/restricted.php");
+require_once($home . "public_html/sifsc/user/event/secao.php");
 
 
 	include('index.php');
@@ -196,7 +197,7 @@ apresentação oral</span>. Data: <b>dia " . $participa_premio->get_dia() . " (q
 		<?php
 		if ( $evento->get_inscricao_aberta() == 1 )
 		{
-			include("~/public_html/sifsc/user/event/form/RegistroInscricao_form.php");
+			include($home . "public_html/sifsc/user/event/form/RegistroInscricao_form.php");
 		}
 		else
 		{
