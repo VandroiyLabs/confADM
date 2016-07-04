@@ -1,7 +1,7 @@
 confADM
 ====
 
-confADM is a project developed since 2012 as the main administrative system behinds a large conference that takes place in the [Institute of Physics of São Carlos](http://www.ifsc.usp.br/) (University of São Paulo), "Semana do Instituto de Física de São Carlos" (SIFSC). After this period developing this system, we wanted to share this code with everyone interested in learning a bit from all this work. We also believe that the SIFSC could benefit from this code becoming public, as much more people would be able to contribute to it and create an awesome project together. In other words, this project could become a wonderful project, maintained by the community. The core system was used in at least other 8 conferences successfully, although with modifications.
+confADM is a project developed since 2012 as the main administrative system behind a large conference that takes place in the [Institute of Physics of São Carlos](http://www.ifsc.usp.br/) (University of São Paulo), "Semana do Instituto de Física de São Carlos" (SIFSC). After this period of development, we wanted to share the source code with everyone interested in learning a bit from all this work. We also believe that the SIFSC could benefit from this code becoming public, as much more people would be able to contribute to it and create an awesome project together. In other words, this project could become a wonderful project maintained by the community to the community. The core system was successfully used in at least 8 different conferences (in addition to the four chapters of SIFSC).
 
 Because this project, as is right now, is highly focused on the community around the Institute of Physics of São Carlos, most of its documentation will be written in Portuguese. This introductory paragraph intends to make a general introduction to anyone who might appear here. If you have questions, do not hesitate contacting the developers.
 
@@ -45,4 +45,3 @@ A seguir, algumas das configurações necessárias com respeito ao banco de dado
 
 * Detaches para configure e-mail estão no arquivo _email_functions.php_
 * Conexão com o banco de dados deve ser configurada no arquivo _class.conexao.php_, onde login e senha são definidos.
-*
