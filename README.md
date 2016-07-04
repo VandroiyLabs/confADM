@@ -34,7 +34,7 @@ A versão atual deste software assume as seguintes bibliotecas:
 
 * PHP 5.6
 * PHPMailer
-* phptopdf
+* MPDF54
 * MariaDB
 
 
