@@ -33,9 +33,10 @@ Dependências
 A versão atual deste software assume as seguintes bibliotecas:
 
 * PHP 5.6
-* PHPMailer
-* MPDF54
 * MariaDB
+* PHPMailer
+* mathjax
+* MPDF54
 
 O sistema também assume que esteja na raiz uma pasta js com uma cópia dos seguintes projetos javascript:
 
