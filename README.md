@@ -37,6 +37,14 @@ A versão atual deste software assume as seguintes bibliotecas:
 * MPDF54
 * MariaDB
 
+O sistema também assume que esteja na raiz uma pasta js com uma cópia dos seguintes projetos javascript:
+
+* jquery-1.9.1.min.js
+* knockout-2.2.1.js
+* globalize.js
+* dx.chartjs.js
+
+
 
 Configurações necessárias
 ---
